@@ -465,22 +465,31 @@ DeepLearning MLP : 0.65012
 
 ### 기초 LinearSVC
 
-![image.png](attachment:df60c819-af6f-49e4-afed-e376a61bdd95:image.png)
+<img width="497" height="649" alt="svm-basic" src="https://github.com/user-attachments/assets/74f8a262-99df-4b40-8b36-5c23611de8f3" />
 
-![image.png](attachment:4f0839a9-ad6e-425c-bf0e-21d180e14b57:image.png)
 
-Train Accuracy: 0.712
+<p>
+<img width="400" height="auto" alt="svm-train-acc" src="https://github.com/user-attachments/assets/8056579d-101b-4999-96b4-938e99be7dc7" />
 
-Test Accuracy: 0.715
+<img width="400" height="auto" alt="svm-test-acc" src="https://github.com/user-attachments/assets/e372c2c5-c1f9-41e2-ba0d-3648af9c7da4" />
+</p>
+<p>
+Train Accuracy: 0.712    
+</p>
+<p>
+Test Accuracy: 0.715    
+</p>
 
-![image.png](attachment:c548eaf7-58b8-472d-b6b9-34c1b29b60f6:image.png)
 
-![unbalanced_cfMatrix.png](attachment:05c576b1-8ff6-4f6b-b2ff-3f17eade4885:unbalanced_cfMatrix.png)
+<p>
+
+<img width="400" height="auto" alt="svm-matrix" src="https://github.com/user-attachments/assets/4d6c5d84-2cab-4617-b5e0-e5f208e374c3" />
+
+<img width="400" height="auto" alt="svm-roc" src="https://github.com/user-attachments/assets/a51fcead-1956-4d65-bb9c-f29f457fdb34" />
+
+</p>
 
 - ROC-AUC Score: 0.6157365356934609
-
-![unbalanced_AUC.png](attachment:f12bf2b3-b632-44f9-b64e-f0d4ae8c0166:unbalanced_AUC.png)
-
 - random_state를 제외한 나머지 하이퍼 파라미터를 기본값으로 학습
 - **Accuracy:** Train set과 Test set 모두 0.71의 값을 보여주는 준수한 모습
 - **Recall:** 실제 이탈자(Class 1)에서 0.02의 무의미한 값을 보여줌
@@ -490,22 +499,36 @@ Test Accuracy: 0.715
 
 ### Balanced SVM
 
-![image.png](attachment:f81f89ba-2a91-444c-b4ad-96b7cac3e9c5:image.png)
+<img width="618" height="667" alt="svm-bal-basic" src="https://github.com/user-attachments/assets/6b02b482-0566-451c-8e1b-0222c29e2609" />
 
-![image.png](attachment:0eff9338-d4a2-4f5e-80dc-6255cf4b789a:image.png)
 
+<p>
+
+<img width="400" height="auto" alt="svm-train-acc" src="https://github.com/user-attachments/assets/69c77446-5f37-40b9-9b64-c63fc681c14b" />
+<img width="400" height="auto" alt="svm-test-acc" src="https://github.com/user-attachments/assets/1b262967-fa35-42b1-9cab-78a698befeb3" />
+
+</p>
+<p>
 Train Accuarcy : 0.588
-Test Accuarcy : 0.590
+</p>
+<p>
+Test Accuarcy : 0.590    
+</p>
 
-![image.png](attachment:7c061c28-f3fe-4355-b5ec-37c4b39ea7b8:image.png)
 
-![balanced_cfMatrix.png](attachment:19c5da99-1367-41f1-9a0b-c55188a3f8d4:balanced_cfMatrix.png)
 
+<p>
+<img width="400" height="auto" alt="svm-bal-matrix" src="https://github.com/user-attachments/assets/3d3f215f-7574-4f70-97c8-53132cd7f419" />
+
+<img width="400" height="auto" alt="svm-bal-roc" src="https://github.com/user-attachments/assets/e33e427e-a85a-4c9a-b606-bc13298c954d" />
+   
+</p>
+
+<p>
 ROC-AUC Score: 0.615243366474203
+</p>
 
 → 오히려 0.0005 떨여졌다
-
-![balanced_AUC.png](attachment:96ec4ce8-b832-4dcc-abf8-1a19487ef91a:balanced_AUC.png)
 
 - class_weight를 ‘balanced’로 두어 모델이 편향
     - class_weight: 소수 클래스 데이터의 무게를 무겁게 설정하여 균형있게 학습을 가능하게 해준다
@@ -514,23 +537,34 @@ ROC-AUC Score: 0.615243366474203
     - Accuracy와 AUC도 중요하지만 recall이 더 중요하다고 판단, 이후 과정에서도 전부 class_weight=’balanced’로 진행
 
 ### Lasso 규제
+<img width="384" height="545" alt="svm-l1-basic" src="https://github.com/user-attachments/assets/e69b2dbf-67c4-4408-b3eb-6660811bd41e" />
 
-![image.png](attachment:295e84dc-e033-4ed7-896d-1bee74d7b983:image.png)
+<p>
+<img width="400" height="auto" alt="svm-l1-train" src="https://github.com/user-attachments/assets/c2af6360-c8b4-4976-9895-478db96344df" />
+<img width="400" height="auto" alt="svm-l1-test" src="https://github.com/user-attachments/assets/30509d85-1bb7-4e29-8fe6-f5cd7c0f30b2" />    
+</p>
 
-![image.png](attachment:24ba5039-c3f3-44f9-bade-77844aa1de26:image.png)
+<p>
+L1 Train Accuarcy : 0.588    
+</p>
+<p>
+L1 Test Accuarcy : 0.590    
+</p>
 
-L1 Train Accuarcy : 0.588
-L1 Test Accuarcy : 0.590
 
-![image.png](attachment:4e503372-4a7a-4ad0-9f12-07aa050c980f:image.png)
+<p>
+    
+<img width="400" height="auto" alt="svm-l1-matrix" src="https://github.com/user-attachments/assets/35244815-de92-4f20-9685-1686baf93c3c" />
+<img width="400" height="auto" alt="svm-l1-roc" src="https://github.com/user-attachments/assets/153c4cc6-4f6a-4f40-a820-0522180c8798" />
 
-![L1_cfMatrix.png](attachment:8ab0de80-9fbb-42af-9edd-72b420471e93:L1_cfMatrix.png)
+</p>
 
-![L1_AUC.png](attachment:b1ce815e-e2e4-4240-b6fe-010c912bdb84:L1_AUC.png)
+<img width="1086" height="91" alt="svm-l1-score" src="https://github.com/user-attachments/assets/b9809c85-9ae2-4656-87ca-13ce614d34d3" />
 
-![image.png](attachment:50033b97-9a18-4f69-9602-aebceb0f8806:image.png)
-
+<p>
 ROC-AUC Score: 0.6156943259385665
+</p>
+
 
 → 현재까지 중 가장 높은 수치 (기본 SVM보다 0.0002 높음)
 
@@ -544,9 +578,13 @@ ROC-AUC Score: 0.6156943259385665
 
 L1으로 feature를 제외 전/후 비교
 
-![balanced_FeatureImportance.png](attachment:463d66e4-8e3f-4c4a-ac49-f7c0d35f2c51:balanced_FeatureImportance.png)
+<div>
+<img width="400" height="auto" alt="svm-l1-feat-after" src="https://github.com/user-attachments/assets/a556865a-ea48-4e85-ac06-4e1abced3620" />
+<img width="400" height="auto" alt="svm-l1-feat-before" src="https://github.com/user-attachments/assets/deaae6a2-d312-46c6-956d-ccac15d96593" />
 
-![L1_FeatureImportance.png](attachment:51fe56dd-b1f7-407d-a3b1-7868e355247a:L1_FeatureImportance.png)
+    
+</div>
+
 
 고찰 
 
@@ -567,17 +605,16 @@ L1으로 feature를 제외 전/후 비교
 ### Optuna
 
 LinearSVC 모델에서는 조절 가능한 하이퍼파라미터 수가 적었음
-
 - penalty: 규제의 종류(Lasso/Ridge)
 - C: 규제 강도
 - loss: 손실함수
 - class_weight: 클래스별 가중치 조절
 
 이 중 recall의 값 유지를 위한 class_weight는 고정, 기준이 될 손실함수는 roc_auc로 고정해두었다.
-
 즉, 규제와 규제 강도만을 optuna를 통해 튜닝 하였다.
 
-![image.png](attachment:53e103e6-b583-48aa-87ae-b934417dc685:image.png)
+<img width="743" height="613" alt="svm-optuna-code" src="https://github.com/user-attachments/assets/e96ee7b0-a01f-45b2-ac0c-71bf25df8a4f" />
+
 
 **결과**
 
@@ -585,19 +622,29 @@ best params: {'C': 0.0003895631989094481, 'penalty': 'l2'}
 
 best AUC: 0.6148503968659134
 
-![image.png](attachment:1552e121-ee15-4f79-8864-ba20e117aab5:image.png)
 
-![image.png](attachment:b58f6144-7ebe-4c4b-92ac-ed2833e2620b:image.png)
+<p>
+<img width="400" height="auto" alt="svm-optuna-train" src="https://github.com/user-attachments/assets/c7660975-b5c8-4d8a-ae62-26059afda09a" />
+<img width="524" height="202" alt="svm-optuna-test" src="https://github.com/user-attachments/assets/8523f5b5-9253-4bcd-bf4c-20bc2c447703" />
 
-Optuna Train Accuarcy: 0.587833494053359
-Optuna Test Accuarcy: 0.5908068145290903
+</p>
 
-![image.png](attachment:0213ff21-42a9-4e64-a2d3-8db6c436904e:image.png)
+<p>
+Optuna Train Accuarcy: 0.587833494053359    
 
-![optuna_cfMatrix.png](attachment:b7959e7a-76f4-4654-96ce-128dd61f46b2:optuna_cfMatrix.png)
+</p>
+<p>
+Optuna Test Accuarcy: 0.5908068145290903    
 
-![optuna_AUC.png](attachment:cacdf11a-b899-455d-84c1-64ec60a88b36:optuna_AUC.png)
+</p>
 
+
+<p>
+
+<img width="400" height="auto" alt="svm-optuna-matrix" src="https://github.com/user-attachments/assets/1aa0e402-f9bb-4c0c-8c5c-ec46336fa5a4" />
+<img width="400" height="auto" alt="svm-optuna-roc" src="https://github.com/user-attachments/assets/3b735a2d-333b-4d1e-ae12-df9e3aa55a3f" />
+  
+</p>
 ROC-AUC Score: 0.6159611553023353
 → 하이퍼 파라미터 튜닝을 진행한 만큼 가장 높은 AUC 값을 가진다.
 
@@ -845,3 +892,4 @@ Best params: {
 ![image.png](attachment:00a0c5cf-83f0-4925-9fb5-be69b431bfd9:image.png)
 
 ![XGBoost_Optuna_feature_importance.png](attachment:2b83d0ba-d8fe-4f19-9594-4fb3dea4b54f:XGBoost_Optuna_feature_importance.png)
+
