@@ -15,14 +15,13 @@
 非常과 飛上을 뜻하는 중의적인 표현
 
 1-2. 팀원 구성 및 GitHub
-
 | 이름 | 역할 | GitHub |
-| --- | --- | --- |
-| 김은우 |  | https://github.com/edu-ai-jiwon |
-| 김현수 |  |  |
-| 문성준 |  |  |
-| 박세현 |  |  |
-| 이동민 |  |  |
+| :--- | :--- | :--- |
+| **김은우** | XGBoost, DeepLearning (MLP) | [whitehole17](https://github.com/whitehole17) |
+| **김현수** | 데이터 수집, CatBoost | [BarryKim34](https://github.com/BarryKim34) |
+| **문성준** | 데이터 전처리, SVM | [dal-sj](https://github.com/dal-sj) |
+| **박세현** | DecisionTree, RandomForest | [parksay](https://github.com/parksay) |
+| **이동민** | LightGBM, 프로젝트 발표 | [LeeDongMin0115](https://github.com/LeeDongMin0115) |
 
 ---
 
@@ -845,3 +844,4 @@ Best params: {
 ![image.png](attachment:00a0c5cf-83f0-4925-9fb5-be69b431bfd9:image.png)
 
 ![XGBoost_Optuna_feature_importance.png](attachment:2b83d0ba-d8fe-4f19-9594-4fb3dea4b54f:XGBoost_Optuna_feature_importance.png)
+
