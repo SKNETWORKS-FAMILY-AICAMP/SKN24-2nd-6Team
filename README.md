@@ -341,69 +341,136 @@ accuracy도 `0.72` 에서 `0.61` 로 하락해 모델은 여전히 낮은 성능
 
 ### 정확도
 
-일반 진행 / L1규제 (reg_alpha=10)
-
-![image.png](attachment:ba58027a-cd38-4728-8284-8a44f4aa9ed4:image.png)
-
-![image.png](attachment:244b3ef6-4d39-4d36-87af-c4691c5f7984:image.png)
-
-Elastic Net 규제 / Optuna 최적화
-
-![image.png](attachment:afaa9faa-f11b-4695-940d-f85517aefccd:image.png)
-
-![image.png](attachment:27a317cd-d1e7-40f2-a532-eb6d0161b600:image.png)
+<table style="width: 100%;">
+  <tr>
+    <td align="center"><b>일반 학습 (Baseline)</b></td>
+    <td align="center"><b>L1 규제 (reg_alpha=10)</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/b9a16e79-4d58-4845-979f-25d1794f7a30" width="100%"></td>
+    <td><img src="https://github.com/user-attachments/assets/d94cd982-0b97-4b55-ac46-cad5f7efa32f" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Elastic Net 규제</b></td>
+    <td align="center"><b>Optuna 최적화</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/bd5e0401-6013-4c0f-be08-e30122e5c579" width="100%"></td>
+    <td><img src="https://github.com/user-attachments/assets/9ab3923c-1bcc-4ff4-8726-0d2b642bfa57" width="100%"></td>
+  </tr>
+</table>
 
 본 실험에서는 XGBoost 모델을 기반으로 일반 학습부터 L1 규제, Elastic Net, 그리고 Optuna를 이용한 베이지안 최적화까지 단계별 고도화를 수행하였습니다. 분석 결과, **Optuna 최적화 모델이 훈련 정확도(Train Accuracy) 0.742를 기록**하며 가장 높은 학습 효율을 보였는데, 이는 최적화 과정에서 도출된 하이퍼파라미터 조합이 데이터 내의 복잡한 비선형 관계를 효과적으로 포착했음을 의미합니다. 특히 2만 개 이상의 고차원 피처셋임에도 불구하고 강한 L1 규제(`reg_alpha: 10`)보다 Optuna의 미세 조정 조합이 선택된 것은, 변수를 강제로 제거하여 정보 손실을 초래하기보다는 트리 깊이(`max_depth: 4`)와 분할 조건(`min_child_weight: 6`)을 통해 모델 복잡도를 간접적으로 제어하는 방식이 본 데이터셋의 일반화 성능 확보에 더 적합했기 때문으로 분석됩니다. 최종 테스트 정확도가 0.719 수준에서 안정화되고 후에 나올 Recall이 1.5배 증가한것은 모델이 과적합(Overfitting)을 성공적으로 억제하면서도 예측의 견고함(Robustness)을 확보했음을 입증하는 결과입니다.
 
 ### 특성 중요도
 
-![image.png](attachment:c788ce37-7f5c-4ab9-96f7-7979f5bf3eb9:image.png)
+<table style="width: 100%;">
+  <tr>
+    <td align="center"><b>일반 학습 (Baseline)</b></td>
+    <td align="center"><b>L1 규제 (reg_alpha=10)</b></td>
+  </tr>
+  <tr>
+    <td><img width="2595" height="1662" alt="image" src="https://github.com/user-attachments/assets/bac2fd84-cde7-453b-9e5a-78a95f7fe257"/></td>
+    <td><img width="2595" height="1663" alt="image" src="https://github.com/user-attachments/assets/7d343511-1129-45d9-8fcf-38dadf54e2da"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Elastic Net 규제</b></td>
+    <td align="center"><b>Optuna 최적화</b></td>
+  </tr>
+  <tr>
+    <td><img width="2595" height="1662" alt="XGBoost_Elastic_feature_importance" src="https://github.com/user-attachments/assets/73e69c4c-aee5-448f-805e-066a39e0b5c8" /></td>
+    <td><img width="2598" height="1668" alt="image" src="https://github.com/user-attachments/assets/0959deb7-13a9-40ce-bd49-8970be25dc7d" />
+</td>
+  </tr>
+</table>
 
-![image.png](attachment:960be8f7-24ce-4827-942d-345ca0be0b02:image.png)
-
-![image.png](attachment:d2c770ea-19c6-490b-91e2-9eab9053061a:image.png)
 
 전체 특성 중요도를 뽑아보면 확실히 L1 규제를 가했을때 중요도가 떨어지는 특성들이 가중치가 0이 되는 모습을 확인할 수 있습니다. 
 
 아래는 특성이 많아 상위 7개 특성만 뽑아 분석하였습니다.
+<table style="width: 100%;">
+  <tr>
+    <td align="center"><b>일반 학습 (Baseline)</b></td>
+    <td align="center"><b>L1 규제 (reg_alpha=10)</b></td>
+  </tr>
+  <tr>
+    <td><img width="3042" height="2193" alt="image" src="https://github.com/user-attachments/assets/1264f722-ccf7-4be6-8cd7-691c4fc2e3e2"/>
+</td>
+    <td><img width="3042" height="2193" alt="image" src="https://github.com/user-attachments/assets/6c1833dd-407a-4e92-b445-24ea130f3326" />
+</td>
+  </tr>
+  <tr>
+    <td align="center"><b>Elastic Net 규제</b></td>
+    <td align="center"><b>Optuna 최적화</b></td>
+  </tr>
+  <tr>
+    <td><img width="3042" height="2193" alt="XGBoost_Elastic_top7_importance" src="https://github.com/user-attachments/assets/731b1432-096e-4a02-9794-1add7f0eb5cf" />
+</td>
+    <td><img width="3043" height="2193" alt="image" src="https://github.com/user-attachments/assets/f50490b3-748d-47aa-9ca8-4e48ea9a0485"/>
 
-![XGBoost_Optuna_feature_importance.png](attachment:4e3b7145-78ac-4e7c-92ce-49a5e5e2e3b9:XGBoost_Optuna_feature_importance.png)
+</td>
+  </tr>
+</table>
 
-![image.png](attachment:076b56ab-5f05-4fa9-acf1-9e27752ab603:image.png)
-
-![XGBoost_L1_top7_importance.png](attachment:e0edf7fb-3b0d-436a-b55c-cdcfbe94364a:XGBoost_L1_top7_importance.png)
-
-![XGBoost_Elastic_top7_importance.png](attachment:8069b34c-4a19-43ae-bab5-f880484c52c4:XGBoost_Elastic_top7_importance.png)
-
-![XGBoost_Optuna_top7_importance.png](attachment:e65f726a-1b66-4f0b-80d7-c1ee5eb54d26:XGBoost_Optuna_top7_importance.png)
 
 모든 모델 아키텍처에서 **'CurrentEquipmentDays(장비 사용 기간)'**와 **'MonthsInService(서비스 유지 기간)'**가 압도적인 중요도를 기록하며 고객 이탈을 결정짓는 핵심 지표임을 재확인하였습니다. 특히 일반 학습 모델에 비해 **L1 규제와 Elastic Net 모델**에서는 'CurrentEquipmentDays'의 중요도 수치가 약 0.13까지 증가하였는데, 이는 규제 적용 과정에서 변별력이 낮은 피처들이 정제되면서 실제 이탈과 직결된 주요 변수들의 영향력이 더 선명하게 드러난 결과로 해석됩니다. 반면 **Optuna 최적화 모델**의 경우, 특정 변수에만 가중치가 쏠리지 않도록 파라미터가 조정되면서 'CreditRating(신용 등급)'과 같은 새로운 변수가 상위권에 진입하는 등 데이터의 다양한 측면을 고르게 반영하여 예측의 견고함을 높였습니다. 결론적으로 본 모델들은 사용 기간과 장비 노후화라는  특성을 중심으로 이탈 징후를 포착하고 있으며, 하이퍼파라미터 최적화를 통해 단순 성능 수치를 넘어 변수 간의 균형 잡힌 해석력을 확보한 것으로 평가됩니다.
 
 ### Confusion Matrix
 
-![image.png](attachment:98088664-08d3-4450-8bf5-54da0caef21d:image.png)
+<table style="width: 100%;">
+  <tr>
+    <td align="center"><b>일반 학습 (Baseline)</b></td>
+    <td align="center"><b>L1 규제 (reg_alpha=10)</b></td>
+  </tr>
+  <tr>
+    <td><img width="1060" height="444" alt="image" src="https://github.com/user-attachments/assets/aea0d143-77e5-4441-881f-c09ecaae9529" />
 
-일반 학습
+</td>
+    <td><img width="1092" height="474" alt="image" src="https://github.com/user-attachments/assets/64766f79-2109-4d20-9e4c-317520a14551" />
 
-![image.png](attachment:c29bcaa8-25cc-4ee3-a10c-a8ba13bed6b2:image.png)
+</td>
+  </tr>
+  <tr>
+    <td align="center"><b>Elastic Net 규제</b></td>
+    <td align="center"><b>Optuna 최적화</b></td>
+  </tr>
+  <tr>
+    <td><img width="1024" height="456" alt="image" src="https://github.com/user-attachments/assets/cf9af743-6f41-49cc-ae81-1b768acebafe" />
 
-Elastic Net
+</td>
+    <td><img width="1036" height="438" alt="image" src="https://github.com/user-attachments/assets/ccbc2ea3-b8fe-47ea-866a-4dd7f70ad03b" />
+</td>
+  </tr>
 
-![image.png](attachment:4e4c3ebf-d47c-4b41-9d1d-b0c83c5e1382:image.png)
+  
+</table>
+<table style="width: 100%;">
+  <tr>
+    <td align="center"><b>일반 학습 (Baseline)</b></td>
+    <td align="center"><b>L1 규제 (reg_alpha=10)</b></td>
+  </tr>
+  <tr>
+    <td><img width="1614" height="1426" alt="XGBoost_1_confusion_matrix" src="https://github.com/user-attachments/assets/d4d2761a-1158-4af3-bdbd-f7211fbf5594" />
 
-L1 규제
+</td>
+    <td><img width="1614" height="1426" alt="XGBoost_L1_confusion_matrix" src="https://github.com/user-attachments/assets/ee149154-db66-4fdc-b3b5-e19e0d43a0b2" />
 
-![image.png](attachment:1ea365f6-b6c2-4338-b2ab-228a34bc6373:image.png)
+</td>
+  </tr>
+  <tr>
+    <td align="center"><b>Elastic Net 규제</b></td>
+    <td align="center"><b>Optuna 최적화</b></td>
+  </tr>
+  <tr>
+    <td><img width="1614" height="1426" alt="image" src="https://github.com/user-attachments/assets/bd32f3b3-c58d-4783-bd70-4b925dbc590b" />
 
-Optuna 파라미터 적용 후
+</td>
+    <td><img width="1614" height="1426" alt="image" src="https://github.com/user-attachments/assets/305e8d11-829b-433c-9f47-9ae1a81ad494" />
 
-![XGBoost_1_confusion_matrix.png](attachment:4b190280-eead-4773-b345-07f02399e8bb:XGBoost_1_confusion_matrix.png)
 
-![XGBoost_L1_confusion_matrix.png](attachment:73a21b8d-bc87-4b99-a49a-ce39010cfed3:XGBoost_L1_confusion_matrix.png)
-
-![XGBoost_Elastic_confusion_matrix.png](attachment:b0b69289-91af-4149-b45b-12869bbfa943:XGBoost_Elastic_confusion_matrix.png)
-
-![XGBoost_Optuna_confusion_matrix.png](attachment:747c9233-8193-4e9b-812f-7fbad99ea36a:XGBoost_Optuna_confusion_matrix.png)
+</td>
+  </tr>
+</table>
 
 각 모델의 혼동 행렬을 분석한 결과, **Optuna 최적화 모델**이 실제 이탈자(Class 1)를 찾아내는 능력이 가장 우수한 것으로 나타났습니다.
 
@@ -413,19 +480,33 @@ Optuna 파라미터 적용 후
 
 ### ROC /AUC
 
-![XGBoost_1_ROC_curve.png](attachment:1e65255a-e369-48d1-b889-7dddf6e7901b:XGBoost_1_ROC_curve.png)
+<table style="width: 100%;">
+  <tr>
+    <td align="center"><b>일반 학습 AUC : 0.66569(Baseline)</b></td>
+    <td align="center"><b>L1 규제 (reg_alpha=10) AUC : 0.66565</b></td>
+  </tr>
+  <tr>
+    <td><img width="2119" height="1664" alt="image" src="https://github.com/user-attachments/assets/9fda1117-6f50-4534-828f-22fd10b8e75b" />
 
-일반학습 AUC : 0.66569
+</td>
+    <td><img width="2119" height="1665" alt="image" src="https://github.com/user-attachments/assets/cd08651e-df59-4bca-a8c9-9dafdcbb7968" />
 
-![XGBoost_L1_ROC_curve.png](attachment:cfcd7178-c43b-4aaf-89d3-d6dd752a2555:XGBoost_L1_ROC_curve.png)
+</td>
+  </tr>
+  <tr>
+    <td align="center"><b>Elastic Net 규제 AUC : 0.66649</b></td>
+    <td align="center"><b>Optuna 최적화 AUC : 0.67120</b></td>
+  </tr>
+  <tr>
+    <td><img width="2119" height="1664" alt="image" src="https://github.com/user-attachments/assets/4df3be55-df57-4e44-910e-444e33a8a04f" />
 
-L1규제 AUC : 0.66565
+</td>
+    <td><img width="2119" height="1664" alt="image" src="https://github.com/user-attachments/assets/22b5ecff-14eb-45a9-84d8-a6d5fdd383bc" />
 
-![XGBoost_Elastic_ROC_curve.png](attachment:ab186e90-faf5-4a7c-9fed-167a66de28ab:XGBoost_Elastic_ROC_curve.png)
 
-![XGBoost_Optuna_ROC_curve.png](attachment:c2d2c352-9b9d-491d-8c54-d2657225f9eb:XGBoost_Optuna_ROC_curve.png)
-
-Elastic Net AUC : 0.66649                                             Optuna AUC : 0.67120
+</td>
+  </tr>
+</table>
 
 전체 모델의 ROC 커브를 분석한 결과, 일반 학습과 규제 모델(L1, Elastic Net)은 모두 **0.66 수준의 AUC**를 기록하며 정체된 성능을 보였으나, **Optuna 최적화 모델은 0.6712**로 가장 높은 수치를 달성하며 모델의 전반적인 판별 성능을 유의미하게 개선했습니다. 특히 L1 규제와 Elastic Net 모델은 일반 모델 대비 AUC 수치가 거의 동일하거나 미세하게 낮은 양상을 보이는데, 이는 규제 적용이 단순히 과적합을 억제할 뿐 클래스 간의 이진 분류 성능(Separability) 자체를 끌어올리지는 못했음을 시사합니다. 일반 학습과 규제 모델들은 AUC 0.66 수준에서 정체되어 분류 임계값 변화에 따른 변별력을 충분히 확보하지 못했으나, **Optuna 최적화 모델은 소폭 상승한 0.6712**를 기록하며 상대적으로 가장 진전된 판별 성능을 보여주었습니다. 이는 규제 적용만으로는 한계가 있었던 클래스 분리 능력을 베이지안 최적화 기반의 파라미터 미세 조정을 통해 미미하게나마 개선할 수 있었음을 보여줬습니다. 비록 비즈니스에 즉시 투입하기엔 변별력이 다소 부족한 수치이지만, Optuna를 통한 튜닝 과정이 모델을 무작위 추측 단계에서 벗어나 유의미한 예측 방향성을 갖게 하는 최적의 지점을 도출했음을 보여줍니다.
 
@@ -435,26 +516,30 @@ Elastic Net AUC : 0.66649                                             Optuna AUC
 
 ### Optuna가 찾은 최적의 하이퍼 파라미터
 
-![image.png](attachment:5fbc79f9-09fd-4b44-98f8-f2a7e3a63708:image.png)
+<img width="794" height="430" alt="image" src="https://github.com/user-attachments/assets/ced42ee3-5e4e-4e5f-be1b-617f416e2840" />
+
 
 딥러닝 기반의 MLP 모델을 구축하며 Optuna를 통해 구조적 최적화를 수행한 결과, 위와 같은 하이퍼 파라미터들이 도출되었습니다. 먼저 학습률(`lr`)이 **0.0015** 수준으로 낮게 설정된 것은 손실 함수(Loss Function)의 국소해(Local Minimum)에 빠지지 않고 안정적으로 수렴하기 위한 선택으로 풀이되며, 배치 사이즈 또한 비교적 크고, 은닉층의 크기(`hidden_dim`)를 **142**로 구성하여 데이터의 비선형적 특징을 충분히 학습할 수 있는 용량을 확보하였습니다. 또한, **30.2% 수준의 드롭아웃(`dropout_rate`)**을 적용함으로써 고차원 데이터에서 발생하기 쉬운 노드 간의 과도한 상호의존성을 차단하고 일반화 성능을 높였습니다. 결과적으로 이러한 하이퍼파라미터 구성은 단순 수치 최적화를 넘어, 신경망이 통신사 이탈 데이터의 불규칙한 패턴을 편향 없이 학습할 수 있는 최적의 아키텍처를 형성하고 있음을 보여줍니다.
 
 ### 정확도
 
-![image.png](attachment:00ed4b09-4f99-4307-9c68-c48180279c67:image.png)
+<img width="1290" height="1154" alt="image" src="https://github.com/user-attachments/assets/86f5e6b4-7d88-41af-a2ca-c7040a9697d2" />
+
 
 딥러닝 기반의 MLP 모델을 구축하여 최적화를 진행한 결과, **훈련 정확도 0.7303, 테스트 정확도 0.7161**을 기록하며 머신러닝 모델(XGBoost Optuna: 0.719) 대비 소폭 낮은 정확도를 보였습니다. 이는 정형 데이터 분석에 특화된 트리 기반 앙상블 모델에 비해, 신경망 구조가 고차원 피처(2만 개 이상) 간의 상관관계를 해석하는 데 있어 상대적으로 더 많은 학습 데이터나 정교한 아키텍처 설계를 필요로 하기 때문으로 분석됩니다. 하지만 **Optuna**를 통해 도출된 **142차원의 은닉층(Hidden Layer)**과 **0.302의 드롭아웃(Dropout)** 적용은 모델이 단순 암기(Overfitting)를 지양하고 일반화된 패턴을 학습하도록 유도하였으며, 훈련과 테스트 점수 간의 격차를 최소화함으로써 딥러닝 모델 특유의 안정적인 예측 변별력을 확보했다는 점에 의의가 있습니다.
 
 ### 특성 중요도 (Permutaion Method 방식으로)
 
-![image.png](attachment:e5c2e364-f3a4-4fd3-bdba-df1651db4e3b:image.png)
+<img width="967" height="701" alt="image" src="https://github.com/user-attachments/assets/8ed9f0bc-f4d8-4693-b5ca-b4d872814860" />
+
 
 - **통화량 변화 민감도**: 트리 모델과 달리 **'PercChangeMinutes(통화량 변화율)'**와 **'MonthlyMinutes(월 사용 분수)'**가 압도적인 1, 2위를 기록하며 이탈 예측의 핵심 지표로 나타났습니다.
 - **신경망 특유의 해석**: 장비 사용 기간에 집중하던 머신러닝 모델과 달리, MLP는 실질적인 **통화 패턴의 변화와 품질(DroppedCalls)** 등 비선형적 요소를 더 민감하게 포착하여 분석했습니다.
 - **서비스 지속성**: **'MonthsInService'**와 **'RetentionCalls'** 역시 상위권에 위치하여, 고객의 서비스 유지 기간과 고객 센터 접촉 이력이 이탈 판단에 중요한 근거가 됨을 확인했습니다.
 - **결론**: MLP는 수치형 데이터의 미세한 변동을 학습하여 머신러닝 모델이 놓칠 수 있는 행동 패턴 기반의 이탈 징후를 보완적으로 제시해주고 있습니다.
 
-![image.png](attachment:a29d4248-088a-4927-9773-dc6eb19ff5b6:image.png)
+<img width="518" height="393" alt="image" src="https://github.com/user-attachments/assets/fb6d73cf-710b-413e-8f78-1ba958276d02" />
+
 
 딥러닝(MLP) 모델의 **Confusion Matrix** 분석 결과입니다.
 
@@ -465,7 +550,8 @@ Elastic Net AUC : 0.66649                                             Optuna AUC
 
 ### ROC AUC
 
-![image.png](attachment:dde844ab-9e0c-44cc-8b02-eb354017572c:image.png)
+<img width="536" height="393" alt="image" src="https://github.com/user-attachments/assets/7a0405da-4cb0-40e3-99dd-73dc04acd800" />
+
 
 DeepLearning MLP : 0.65012
 
@@ -855,4 +941,5 @@ Best params: {
 ![image.png](attachment:00a0c5cf-83f0-4925-9fb5-be69b431bfd9:image.png)
 
 ![XGBoost_Optuna_feature_importance.png](attachment:2b83d0ba-d8fe-4f19-9594-4fb3dea4b54f:XGBoost_Optuna_feature_importance.png)
+
 
