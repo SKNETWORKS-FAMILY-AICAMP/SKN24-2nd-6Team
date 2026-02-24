@@ -62,12 +62,12 @@
 
 # 3. 기술 스택
 
-| Type | Tool|
+| Category | Library |
 | --- | --- |
 | Language | Python |
 | Data Processing | pandas, numpy |
 | Data Visualization | matplotlib, seaborn |
-| ML | scikit-learn, xgboost, catboost |
+| ML | scikit-learn, xgboost, catboost, LightGBM |
 | DL | PyTorch |
 | Frontend | Streamlit |
 
@@ -944,7 +944,7 @@ Best params: {
 <img width="1815" height="715" alt="image" src="https://github.com/user-attachments/assets/68f994f2-f16e-41c0-80a1-179924fafbc7" />
 
 **한계**
-- **이진 분류 판별력의 수치적 한계:** 최종 모델의 ROC-AUC가 0.68 수준에 머물러 있어, 실제 비즈니스 현장에 전적으로 의존하기에는 모델의 전반적인 판별 성능이 다소 낮다는 한계가 있습니다.
+- **이진 분류 판별력의 수치적 한계:** 최종 모델의 Recall이 0.65 수준에 머물러 있어, 실제 비즈니스 현장에 전적으로 의존하기에는 모델의 전반적인 판별 성능이 다소 낮다는 한계가 있습니다.
 - **성능 지표 간의 트레이드오프(Trade-off):** 이탈자 탐지율(Recall)을 확보하기 위해 클래스 가중치를 조절하는 과정에서 정밀도(Precision)와 전체 정확도가 하락하여, 실제 프로모션 집행 시 오탐지에 따른 비용 발생 가능성이 존재합니다.
 - **전략적 참고 지표로서의 활용:** 본 모델은 절대적인 예측보다는 '장비 사용 기간' 및 '사용량 변화율' 등 핵심 변수를 중심으로 기기 변경 시점이나 프로모션 타겟군을 선정하는 보조적 의사결정 도구로 활용하는 것이 적절합니다.
 
@@ -966,5 +966,6 @@ precision-recall trade off 현상을 직접 경험할 수 있어서 재밌었다
 - 이동민
 
 ---
+
 
 
