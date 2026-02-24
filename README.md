@@ -101,8 +101,7 @@
 ---
 
 # 4. WBS 및 폴더 구조
-
-![image.png](attachment:c9700e7b-15db-4892-a0fe-73f9cff1292d:image.png)
+<img width="514" height="497" alt="SKN24_2nd_6team_WBS" src="https://github.com/user-attachments/assets/b1a9fc66-c547-4a39-bb77-ca2557dfcf51" />
 
 ```markdown
 burger-crime-eda/
@@ -318,14 +317,25 @@ accuracy도 `0.72` 에서 `0.61` 로 하락해 모델은 여전히 낮은 성능
 # XGBoost
 
 ### 각 하이퍼 파라미터 설정값
+<table style="width: 100%;">
+  <tr>
+    <td align="center"><b>일반 학습 파라미터</b></td>
+    <td align="center"><b>L1 규제 파라미터</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/579d7ea6-72e9-4a83-a39e-2b28079cc646" width="100%"></td>
+    <td><img src="https://github.com/user-attachments/assets/9898f484-98d1-4872-ba29-7d978d4dcc3b" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Elastic Net 파라미터</b></td>
+    <td align="center"><b>Optuna 최적화 파라미터</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/abbe4f98-b4c7-4dd8-bdaf-383f42b0dbe8" width="100%"></td>
+    <td><img src="https://github.com/user-attachments/assets/33cd5ea5-9db6-4348-ade4-f5ebf2e43420" width="100%"></td>
+  </tr>
+</table>
 
-![image.png](attachment:d66c01f1-d116-40bd-b5c6-613ba2b43a4f:image.png)
-
-![image.png](attachment:7a32df7c-6fc5-4755-822f-a01deef20895:image.png)
-
-![image.png](attachment:95a5718b-3eb3-4d47-a8a4-b8d9390a60d3:image.png)
-
-![image.png](attachment:27f30468-4f02-418d-a36b-c23569a710d3:image.png)
 
  XGBoost  모델의 하이퍼 파라미터 튜닝 과정입니다. 초기 베이스라인 모델 설정 후, 특성이 65개로 많은 점을 고려해 모델의 복잡도를 제어하고 일반화 성능을 확보하기 위해 L1 규제(`reg_alpha`)와 L2 규제(`reg_lambda`)를 병행하는 Elastic Net 방식을 적용하여 과적합을 방지하였습니다. 이후 Optuna를 활용하여 194개의 에스티메이터(`n_estimators`)와 학습률(`learning_rate`), 트리 깊이(`max_depth`) 등의 핵심 하이퍼파라미터를 ROC-AUC 지표 기준으로 최적화하였습니다. 그 결과, 전체 데이터에 대해 72%의 정확도를 달성하였으며, 가장 높은 값의 ROC-AUC 지표를 뽑아낼 수 있었습니다.
 
@@ -845,3 +855,4 @@ Best params: {
 ![image.png](attachment:00a0c5cf-83f0-4925-9fb5-be69b431bfd9:image.png)
 
 ![XGBoost_Optuna_feature_importance.png](attachment:2b83d0ba-d8fe-4f19-9594-4fb3dea4b54f:XGBoost_Optuna_feature_importance.png)
+
