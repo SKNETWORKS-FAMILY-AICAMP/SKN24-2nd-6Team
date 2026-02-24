@@ -610,21 +610,19 @@ ROC-AUC Score: 0.6159611553023353
 
 ### 범주형 변수 데이터 타입 변환
 
-![image.png](attachment:99e774fc-6178-461c-a441-311aa2ed48f7:image.png)
+<img width="657" height="235" alt="image" src="https://github.com/user-attachments/assets/56c072ef-ef42-47de-a14c-2f5c1187a9d0" />
 
-![image.png](attachment:7636e0e2-d6a4-4459-b459-80d78b457198:image.png)
+<img width="352" height="125" alt="image" src="https://github.com/user-attachments/assets/e4b3f15f-36ba-488a-90eb-c2f2d0b1b44a" />
+
 
 CatBoost 모델 특징에 맞춰 범주형 변수의 데이터 타입을 정수형으로 변환
 
 ### CatBoost 1차 모델 학습
+<img width="677" height="178" alt="image" src="https://github.com/user-attachments/assets/e4f98820-35bf-4103-a57f-436b1f71f16e" />
 
- 
+<img width="1030" height="443" alt="image" src="https://github.com/user-attachments/assets/6e49c07e-e466-4a64-87f4-d41aaba00b4b" />
 
-![image.png](attachment:9bf02bc5-eb63-4a1e-99f1-2f5072ab68df:image.png)
-
-![image.png](attachment:a36e9237-55ee-4734-af93-1f4bd90cf59e:image.png)
-
-![image.png](attachment:6597f456-b0f1-44a3-8433-ee58a3dacbae:image.png)
+<img width="811" height="300" alt="image" src="https://github.com/user-attachments/assets/c9e9f2b4-35c8-4139-b8a3-56bb9953823c" />
 
 test: 훈련용 데이터셋에 대한 AUC
 
@@ -634,13 +632,13 @@ test1: 테스트 데이터셋에 대한 AUC
 
 **ROC-AUC 커브**
 
-![image.png](attachment:fdd4e608-7700-45c2-8950-3d5d9770bdd0:image.png)
+<img width="705" height="553" alt="image" src="https://github.com/user-attachments/assets/dbe4c655-a499-4fda-ba5e-9679df116275" />
 
 **Confusion Matrix**
 
-![image.png](attachment:57cb2730-c102-464f-8789-e8501b337916:image.png)
+<img width="531" height="470" alt="image" src="https://github.com/user-attachments/assets/4f94c3f1-71cd-44d8-af2c-0dab836f1b3a" />
 
-![image.png](attachment:fe6b7cc8-5274-4478-9a88-d904ad872823:image.png)
+<img width="424" height="157" alt="image" src="https://github.com/user-attachments/assets/85b316e2-e188-4be0-a9b8-3af00fdd198c" />
 
 **정확도**
 
@@ -654,7 +652,13 @@ test1: 테스트 데이터셋에 대한 AUC
 
 **특성 중요도 분석**
 
-![image.png](attachment:191bb0c2-4055-4719-ba0b-7a45ad98fe8e:image.png)
+<img width="1485" height="1015" alt="image" src="https://github.com/user-attachments/assets/2fe53d76-8455-420c-bc7b-65b7667755ed" />
+
+<img width="605" height="790" alt="image" src="https://github.com/user-attachments/assets/498cfc70-e18b-48c7-bba5-04afd5286161" />
+
+<img width="1189" height="590" alt="image" src="https://github.com/user-attachments/assets/e6ff4a22-7704-4eb6-a8df-61cd8c1d2483" />
+
+
 
 **핵심 지표 및 행동 패턴 포착:** 타 모델들과 마찬가지로 **MonthsInService(서비스 유지 기간)**와 **CurrentEquipmentDays(장비 사용 기간)***를 가장 강력한 이탈 요인으로 꼽았습니다. 더불어 PercChangeMinutes(통화량 변화율)와 MonthlyMinutes(월 사용 분수) 역시 높은 중요도를 기록했는데, 이는 장비의 노후화뿐만 아니라 고객의 '실제 통화 패턴 변화'라는 행동적 특성까지 기본 모델에서부터 균형 있게 학습하고 있음을 보여줍니다.
 
@@ -667,15 +671,15 @@ test1: 테스트 데이터셋에 대한 AUC
 
 **2. 실험 결과 및 성능 검증**
 
-![image.png](attachment:1d3326dc-c9c9-4aa6-ae4b-e5c6f5d6643c:image.png)
+<img width="604" height="311" alt="image" src="https://github.com/user-attachments/assets/b4415369-f532-499a-8e70-1329bdb325ba" />
 
 bestTest = 0.6830251824
 
-![image.png](attachment:7f97dcfa-a69b-4c18-8709-03c2aebf8859:image.png)
+<img width="598" height="311" alt="image" src="https://github.com/user-attachments/assets/a2a60828-ab4f-43c2-9a53-82439bca976e" />
 
 bestTest = 0.6834692785
 
-![image.png](attachment:26df029c-16cb-4d1c-85a0-804f65d70009:image.png)
+<img width="601" height="304" alt="image" src="https://github.com/user-attachments/assets/f323ad04-32fb-4dbe-a93d-c077579d7082" />
 
 bestTest = 0.6827287087
 
@@ -697,7 +701,7 @@ bestTest = 0.6827287087
 
 **2. 도출된 최적 파라미터**
 
-![image.png](attachment:3b75b155-b2e9-4561-b0a3-588a76273b06:image.png)
+<img width="850" height="826" alt="image" src="https://github.com/user-attachments/assets/6b256fe0-3f79-4acc-aff2-5d5e28bebb9f" />
 
 Best AUC: 0.6857904757843397
 Best params: {
@@ -722,15 +726,15 @@ Best params: {
 
 **ROC-AUC Curve**
 
-![image.png](attachment:4ae7129e-e3d7-4f13-a389-ca564f66b1b0:image.png)
+<img width="705" height="553" alt="image" src="https://github.com/user-attachments/assets/75106601-e707-4284-a230-b6bdee7afc8d" />
 
 - 최적화 후 검증 데이터 기준 ROC-AUC 지표는 기존 0.683에서 **0.6858**로 소폭 상승했습니다.
 
 **Confusion Matrix**
 
-![image.png](attachment:ba1b3deb-0ea8-4720-b0ad-fec37740a438:image.png)
+<img width="522" height="470" alt="image" src="https://github.com/user-attachments/assets/ce579b64-026b-450d-b39a-34015db4c4a7" />
 
-![image.png](attachment:6703c8b9-ab28-4469-8a40-dc01e700aaa7:image.png)
+<img width="424" height="159" alt="image" src="https://github.com/user-attachments/assets/90481000-c5e7-4c72-a342-5a914892b71a" />
 
 - 훈련 정확도 0.690, 테스트 정확도 0.632를 기록하며 기존 베이스라인(0.727) 대비 전체 정확도는 다소 하락했습니다.
 - **이탈자 탐지 능력(Recall)의 향상:** 베이스라인에서 극히 저조했던 이탈자 재현율이 튜닝 후 **65%**로 대폭 상승했습니다. 실제 이탈자 2,852명 중 약 1,854명가량을 정확히 예측해 낸 결과입니다.
@@ -845,3 +849,4 @@ Best params: {
 ![image.png](attachment:00a0c5cf-83f0-4925-9fb5-be69b431bfd9:image.png)
 
 ![XGBoost_Optuna_feature_importance.png](attachment:2b83d0ba-d8fe-4f19-9594-4fb3dea4b54f:XGBoost_Optuna_feature_importance.png)
+
