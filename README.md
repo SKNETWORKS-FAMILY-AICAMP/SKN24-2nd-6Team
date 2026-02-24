@@ -49,53 +49,27 @@
 
 1. **동일한 데이터 기준으로 다양한 분류 모델을 비교하고 최적 모델을 선정**
 - XGBoost, LightGBM, Gradient Boosting, Random Forest, Decision Tree, CatBoost 등 여러 모델을 학습·평가하여 성능을 비교합니다.
-1. **불균형 데이터 특성을 고려한 성능 평가 지표 적용**
+2. **불균형 데이터 특성을 고려한 성능 평가 지표 적용**
 - 이탈 데이터는 소수 클래스(이탈) 비율이 낮아 Accuracy만으로는 성능이 과대평가될 수 있습니다.
 - 따라서 F1, ROC-AUC 등 지표를 함께 확인하여 이탈 고객 탐지 성능을 평가합니다.
-1. **ROC-AUC를  기준으로 최종 모델 선정**
+3. **ROC-AUC를  기준으로 최종 모델 선정**
 - 임계값(Threshold)에 덜 의존하는 전반적인 구분력(ROC-AUC)을 중심으로 최종 모델을 선정합니다.
 - 혜택/프로모션을  제공하는 전략이기에 이탈 예측
-1. **예측 결과 기반 프로모션 타겟팅 전략 제안**
+4. **예측 결과 기반 프로모션 타겟팅 전략 제안**
 - 이탈 확률이 높은 고객군을 선별하고, 혜택 제공 등 프로모션 전략을 통해 이탈 감소에 활용할 수 있는 방향을 제시합니다.
 
 ---
 
 # 3. 기술 스택
 
-- Python
-    
-    [](https://img.shields.io/badge/python-blue?style=for-the-badge&logo=python&logoColor=white)
-    
-- selenium
-    
-    [](https://img.shields.io/badge/selenium-green?style=for-the-badge&logo=selenium&logoColor=white)
-    
-- pandas
-    
-    [](https://img.shields.io/badge/pandas-yellow?style=for-the-badge&logo=pandas&logoColor=white)
-    
-- numpy
-    
-    [](https://img.shields.io/badge/numpy-lightblue?style=for-the-badge&logo=numpy&logoColor=white)
-    
-- matplotlib
-    
-    [](https://img.shields.io/badge/matplotlib-black?style=for-the-badge&logo=matplotlib&logoColor=white)
-    
-- seaborn
-    
-    [](https://img.shields.io/badge/seaborn-darkblue?style=for-the-badge&logo=seaborn&logoColor=white)
-    
-- folium
-    
-    [](https://img.shields.io/badge/folium-white?style=for-the-badge&logo=folium&logoColor=black)
-    
-
-| Language | Python |
+| Type | Tool|
 | --- | --- |
-| Web Crawling | selenium |
+| Language | Python |
 | Data Processing | pandas, numpy |
-| Data Visualization | matplotlib, seaborn, folium |
+| Data Visualization | matplotlib, seaborn |
+| ML | scikit-learn, xgboost, catboost |
+| DL | PyTorch |
+| Frontend | Streamlit |
 
 ---
 
@@ -190,7 +164,7 @@
 
 ---
 
-# 7. 데이터 전처리
+# 6. 데이터 전처리
 
 ## 범주형 데이터 Unique값 확인
 
@@ -222,46 +196,38 @@
 
 <img width="557" height="219" alt="image (3)" src="https://github.com/user-attachments/assets/cd66a9b7-666a-4b08-8016-74e14c75db6e" />
 
-- **Handsets, HandsetModels, CurrentEquipmentDays 처리 (결측치 1개)**
-    - ***Handsets, HandsetModels, CurrentEquipmentDays는 전부 같은 행에서 결측치를 가짐***
-    - ***다른 값으로 대체하기 어려움, 1개 뿐이므로 제거***
+- Handsets, HandsetModels, CurrentEquipmentDays 처리 (결측치 1개)
+    - Handsets, HandsetModels, CurrentEquipmentDays는 전부 같은 행에서 결측치를 가짐
+    - 다른 값으로 대체하기 어려움, 1개 뿐이므로 제거
     
-- ***PercChangeRevenues, PercChangeMinutes 전부 같은 행에서 결측치를 가짐***
-    - ***각각 수익변화율, 사용시간변화율 → 혹시 신규 고객인지 확인***
-    - ***평균 이용기간 26.6개월로, 신규고객으로 보기 어려움***
-        
-        <img width="972" height="471" alt="image (4)" src="https://github.com/user-attachments/assets/f3b86785-a98e-439c-95c8-41cd83d01c54" />
-
-
-    - ***대체값을 찾기 어려워 제거***
-    - 
-- **DirectorAssistedCalls, TotalRecurringCharge. RoamingCalls, OverageMinutes, MonthlyRevenue, MonthlyMinutes 처리 결측치 (156개)**
-    - ***PercChangeRevenues를 제거하면서 함께 제거됨***
-    - ***즉, 이 열에서 결측치를 가지고 있던 행들은 너무 많은 결측치(col2 + col3)를 가지고 있어서 제거될만 했음***
+- PercChangeRevenues, PercChangeMinutes 전부 같은 행에서 결측치를 가짐
+    - 각각 수익변화율, 사용시간변화율 → 혹시 신규 고객인지 확인
+    - 평균 이용기간 26.6개월로, 신규고객으로 보기 어려움
+<img width="972" height="471" alt="image (4)" src="https://github.com/user-attachments/assets/f3b86785-a98e-439c-95c8-41cd83d01c54" />
+    - 대체값을 찾기 어려워 제거
     
-- **AgeHH1, AgeHH2 처리 (결측치 909개)**
-    - ***혹시 1인 가구일 가능성을 고려***
+- DirectorAssistedCalls, TotalRecurringCharge. RoamingCalls, OverageMinutes, MonthlyRevenue, MonthlyMinutes 처리 결측치 (156개)
+    - PercChangeRevenues를 제거하면서 함께 제거됨
+    - 즉, 이 열에서 결측치를 가지고 있던 행들은 너무 많은 결측치(col2 + col3)를 가지고 있어서 제거될만 했음
     
-    <img width="971" height="206" alt="image (5)" src="https://github.com/user-attachments/assets/c0b1b8fe-0d38-4e43-a7cd-0f427b745cec" />
-
-    - ***MaritalStatus(결혼 여부)가 Unknown인 값이 너무 많아 판단 어려움. No 비율이 더 높긴 하지만, Unknown 자체가 많아서 제거***
+- AgeHH1, AgeHH2 처리 (결측치 909개)
+    - 혹시 1인 가구일 가능성을 고려
+<img width="971" height="206" alt="image (5)" src="https://github.com/user-attachments/assets/c0b1b8fe-0d38-4e43-a7cd-0f427b745cec" />
+    - MaritalStatus(결혼 여부)가 Unknown인 값이 너무 많아 판단 어려움. No 비율이 더 높긴 하지만, Unknown 자체가 많아서 제거
     
 
-- **결과**
-- 
+- 결과
 <img width="769" height="356" alt="image (6)" src="https://github.com/user-attachments/assets/fca8086e-0d25-459d-be3c-5fec27da5e3a" />
-
 - 결과적으로 결측치가 존재하는 행은 전부 삭제하였으나, 전체(51048행) 중 약 2.54%(약 1300행) 밖에 해당하지 않아 무리가 없을 것으로 판단
 
 58Cols → 66Cols
 
 이후 L1 Norm을 진행하며 중요도가 낮은 feature가 0으로 죽는 것을 확인할 예정
-
 성능에 영향을 끼친다면 필요 없어 보이는 열 제거 + feature engineering 진행
 
 ---
 
-# 8. 인공지능 학습 결과서
+# 7. 인공지능 학습 결과서
 
 ### DT
 
@@ -298,16 +264,14 @@
 ---
 
 - 최적화 전후 분류 레포트
-<p align="center">
 <img width="500" height="auto" alt="image (14)" src="https://github.com/user-attachments/assets/ef1ec4a7-449e-4ac0-b41a-fb545128140a" />
 <img width="500" height="auto" alt="image (15)" src="https://github.com/user-attachments/assets/3081e87b-e99c-4ee5-a6d3-1aed41d0ab46" />
-</p>
-- 최적화 전후 ROC curve
-<p align="center">
-<img width="300" height="auto" alt="image (16)" src="https://github.com/user-attachments/assets/699f72f3-8d22-47f2-84a9-d70b36f09815" />
 
+- 최적화 전후 ROC curve
+
+<img width="300" height="auto" alt="image (16)" src="https://github.com/user-attachments/assets/699f72f3-8d22-47f2-84a9-d70b36f09815" />
 <img width="300" height="auto" alt="image (17)" src="https://github.com/user-attachments/assets/bee9b4f5-b85c-46ad-a0fd-86b6396db4f9" /> 다시 최적화 수행 (recall 을 높이도록)
-</p>
+
 최적화 후 Class 1의 정밀도가 `0.52`에서 `0.62`로 올랐습니다.
 반면 재현율은 `0.10`에서 `0.05`로 떨어졌습니다.
 Precision-Recall Trade-off 현상을 확인할 수 있었습니다.
@@ -905,45 +869,41 @@ Best params: {
 
 - **ROC-AUC: 0.6832 / Accuracy: 0.62**
 - 이탈(Class 1) 기준 **Recall : 0.66 / F1 : 0.50**
-    <img width="683" height="411" alt="스크린샷 2026-02-24 023621" src="https://github.com/user-attachments/assets/eab362e4-c402-4487-aace-7296788e2174" />
-    <img width="549" height="225" alt="스크린샷 2026-02-24 024215" src="https://github.com/user-attachments/assets/987726ce-40a5-4092-b0bf-ca8f0b55aaad" />
+<img width="683" height="411" alt="스크린샷 2026-02-24 023621" src="https://github.com/user-attachments/assets/eab362e4-c402-4487-aace-7296788e2174" />
+<img width="549" height="225" alt="스크린샷 2026-02-24 024215" src="https://github.com/user-attachments/assets/987726ce-40a5-4092-b0bf-ca8f0b55aaad" />
+      
+<img width="400" height="400" alt="LGBM_confusin_matrix" src="https://github.com/user-attachments/assets/090a1e64-fc03-4e36-b5dd-9e01dfb9f3c9" />
+      
+<img width="400" height="400" alt="LGBM_ROC_Curve" src="https://github.com/user-attachments/assets/bf1e4108-7a80-4280-80de-e8043a06065e" />
 
-  <p align="center">
-      
-    <img width="400" height="400" alt="LGBM_confusin_matrix" src="https://github.com/user-attachments/assets/090a1e64-fc03-4e36-b5dd-9e01dfb9f3c9" />
-      
-    <img width="400" height="400" alt="LGBM_ROC_Curve" src="https://github.com/user-attachments/assets/bf1e4108-7a80-4280-80de-e8043a06065e" />
-</p>
 → 기본 설정의 경우 Recall(이탈 탐지율)은 0.66로 확보됐지만, Precision(타겟 적중률)이 0.40으로 오탐이 상대적으로 많은 것으로 확인
 
 ### 2) 규제 적용(L1 / Elastic)
 
 - **L1 ROC-AUC: 0.6833 / Accuracy: 0.63 / Recall: 0.63 / F1: 0.49**
 - **Elastic ROC-AUC: 0.6830 / Accuracy: 0.62 / Recall: 0.64 / F1: 0.49**
-- 
-    <p align="center">
-    <img width="739" height="470" alt="스크린샷 2026-02-24 024544" src="https://github.com/user-attachments/assets/ccac99f0-9494-4a55-a953-bb4a398ff6ee" />
-    <img width="549" height="225" alt="스크린샷 2026-02-24 024215" src="https://github.com/user-attachments/assets/5c2d1e46-2c09-48b5-a9db-df14132c4dcc" />
 
-    <img width="728" height="493" alt="스크린샷 2026-02-24 024756" src="https://github.com/user-attachments/assets/742e5e14-4398-4177-90c9-b2fafffe91ce" />
-    <img width="538" height="234" alt="스크린샷 2026-02-24 024823" src="https://github.com/user-attachments/assets/8692fbcb-8f37-4e14-857a-aadbdffa5482" />
-    </p>
-    → 규제 적용만으로는 **AUC가 거의 비슷한 수준**이라 성능 개선 폭이 크지 않았고, 대신 예측 안정성 확인 정도로 사용 후 다음 단계로 넘어감
+<img width="739" height="470" alt="스크린샷 2026-02-24 024544" src="https://github.com/user-attachments/assets/ccac99f0-9494-4a55-a953-bb4a398ff6ee" />
+<img width="549" height="225" alt="스크린샷 2026-02-24 024215" src="https://github.com/user-attachments/assets/5c2d1e46-2c09-48b5-a9db-df14132c4dcc" />
 
-    <img width="1590" height="1422" alt="image" src="https://github.com/user-attachments/assets/277be17d-be1a-4c42-b975-32da56a7cae4" />
-    <img width="1590" height="1422" alt="image" src="https://github.com/user-attachments/assets/2a7119e4-e051-4254-9356-783ec2e8e4cc" />
-    <img width="2119" height="1665" alt="image" src="https://github.com/user-attachments/assets/c954d94c-5d9e-4a8a-8a7f-ea3378806cbf" />
-    <img width="2119" height="1665" alt="image" src="https://github.com/user-attachments/assets/de2e9d74-6f10-4f33-86b9-d2cf14bc0570" />
+<img width="728" height="493" alt="스크린샷 2026-02-24 024756" src="https://github.com/user-attachments/assets/742e5e14-4398-4177-90c9-b2fafffe91ce" />
+<img width="538" height="234" alt="스크린샷 2026-02-24 024823" src="https://github.com/user-attachments/assets/8692fbcb-8f37-4e14-857a-aadbdffa5482" />
+
+→ 규제 적용만으로는 **AUC가 거의 비슷한 수준**이라 성능 개선 폭이 크지 않았고, 대신 예측 안정성 확인 정도로 사용 후 다음 단계로 넘어감
+
+<img width="1590" height="1422" alt="image" src="https://github.com/user-attachments/assets/277be17d-be1a-4c42-b975-32da56a7cae4" />
+<img width="1590" height="1422" alt="image" src="https://github.com/user-attachments/assets/2a7119e4-e051-4254-9356-783ec2e8e4cc" />
+<img width="2119" height="1665" alt="image" src="https://github.com/user-attachments/assets/c954d94c-5d9e-4a8a-8a7f-ea3378806cbf" />
+<img width="2119" height="1665" alt="image" src="https://github.com/user-attachments/assets/de2e9d74-6f10-4f33-86b9-d2cf14bc0570" />
 
 ### 3) Optuna 최적화(최종 후보)
 
 - **ROC-AUC: 0.6874 / Accuracy: 0.64**
 - **Recall 0.63 /  F1 0.50**
-- 
-    <img width="828" height="780" alt="스크린샷 2026-02-24 024913" src="https://github.com/user-attachments/assets/494df3d9-a86d-4211-bf4b-2f8609d990be" />
-    <img width="555" height="226" alt="스크린샷 2026-02-24 025006" src="https://github.com/user-attachments/assets/f64ef2d1-7cd4-4b55-becc-bb9b9e61e3cb" />
-    
-    → AUC 개선 폭은 크지 않지만(0.683→0.687), 다른 설정(L1/Elastic)에서는 AUC가 정체되거나 소폭 하락한 것에 비해 좀 더 크게 상승된 것이 확인. 이탈 탐지 성능도 유지되어 최종 모델 후보로 선정
+
+<img width="828" height="780" alt="스크린샷 2026-02-24 024913" src="https://github.com/user-attachments/assets/494df3d9-a86d-4211-bf4b-2f8609d990be" />
+<img width="555" height="226" alt="스크린샷 2026-02-24 025006" src="https://github.com/user-attachments/assets/f64ef2d1-7cd4-4b55-becc-bb9b9e61e3cb" />    
+→ AUC 개선 폭은 크지 않지만(0.683→0.687), 다른 설정(L1/Elastic)에서는 AUC가 정체되거나 소폭 하락한 것에 비해 좀 더 크게 상승된 것이 확인. 이탈 탐지 성능도 유지되어 최종 모델 후보로 선정
     
 <img width="2126" height="1446" alt="image" src="https://github.com/user-attachments/assets/9dd16655-0145-4372-b995-636469dc4bc4" />
     
@@ -978,19 +938,17 @@ Best params: {
 - **LightGBM**은 ROC-AUC **0.6886**으로 근소하게 높았으나, 차이는 **0.0028p**로 매우 작고, churn 탐지 관점에서는 **Recall이 더 중요한 지표**이므로 **CatBoost를 최종 모델로 선정**하였다.
 - 또한 **XGBoost / RandomForest / DecisionTree**는 Accuracy는 높지만 Recall이 **0.05~0.11**로 낮아 churn 고객을 대부분 놓치는 경향이 확인되어 최종 후보에서 제외하였다.
 
-  
-### 한계점
+# 7. 활용
+**Streamlit를 통한 이탈 고객 예측 및 프로모션 시연**
+<img width="1800" height="749" alt="image" src="https://github.com/user-attachments/assets/0a2900a1-11ea-470e-ac67-4abdb67abb38" />
+<img width="1815" height="715" alt="image" src="https://github.com/user-attachments/assets/68f994f2-f16e-41c0-80a1-179924fafbc7" />
 
-예측하기 어렵다. 다소 어려운 부분이 있다. 억지로 결론을 내지 말자
+**한계**
+- **이진 분류 판별력의 수치적 한계:** 최종 모델의 ROC-AUC가 0.68 수준에 머물러 있어, 실제 비즈니스 현장에 전적으로 의존하기에는 모델의 전반적인 판별 성능이 다소 낮다는 한계가 있습니다.
+- **성능 지표 간의 트레이드오프(Trade-off):** 이탈자 탐지율(Recall)을 확보하기 위해 클래스 가중치를 조절하는 과정에서 정밀도(Precision)와 전체 정확도가 하락하여, 실제 프로모션 집행 시 오탐지에 따른 비용 발생 가능성이 존재합니다.
+- **전략적 참고 지표로서의 활용:** 본 모델은 절대적인 예측보다는 '장비 사용 기간' 및 '사용량 변화율' 등 핵심 변수를 중심으로 기기 변경 시점이나 프로모션 타겟군을 선정하는 보조적 의사결정 도구로 활용하는 것이 적절합니다.
 
-참고 정도는 가능한
-
-특성 중요도 
-
-장비 사용기간 < - 기기 변경 때 프로모션을  
-
-# 9. 회고
-
+# 8. 회고
 - 김은우
 두 번의 미니 프로젝트를 거치며 머신러닝의 고도화 기법과 딥러닝 MLP의 기초를 실무 통신사 데이터에 적용해 보았습니다. 특히 성능 지표를 단순 정확도로만 보는 것이 아니라, **Confusion Matrix와 ROC-AUC 곡선**을 통해 모델이 소수 클래스(이탈자)를 얼마나 정밀하게 판별하는지 심층적으로 이해할 수 있었습니다.
 기술적으로는 **XGBoost 기반의 규제 모델(L1, Elastic Net)**과 **Optuna 하이퍼파라미터 최적화**를 비교하며, 모델의 복잡도와 일반화 성능 사이의 트레이드오프를 직접 체감했습니다. 또한, 트리 기반 머신러닝 모델은 '장비 사용 기간'과 같은 정적인 지표에 집중하는 반면, **MLP 딥러닝 모델은 '통화량 변화율' 등 비선형적 패턴**을 핵심 변수로 포착한다는 점을 확인하며 데이터 특성에 따른 모델 선택의 중요성을 배웠습니다.
@@ -1004,18 +962,9 @@ SVM을 학습시킬 때 짧은 시간에 많은 데이터를 효율적으로 학
 precision-recall trade off 현상을 직접 경험할 수 있어서 재밌었다. 실제 데이터를 모델에 학습시켜가면서 결과는 숫자로 직접 보고, recall 을 높이도록 최적화를 진행해보고, 다시 precision 이 낮아지는 과정을 통해 이진 분류를 더 이해할 수 있었다. 
 - 김현수
 단순히 정확도 혹은 AUC 점수가 높이는 것이 모델의 실활용성을 높이는 것은 아니라는 것을 알게 되었습니다. 특히, 통신사 이탈률 예측을 통해 손해 최소화라는 목표를 달성하기 위해서는 재현율을 높이는 것이 중요한데, trade-off로 인한 precision 및 accuracy 감소 대비 이익을 저울질하는 것이 어려웠고, 후에 공식화하여 실무에 사용 가능한 임계값을 찾아보고 싶다고 생각했습니다. 
-
 프로젝트를 본격적으로 시작하기에 앞서 Git을 포함한 협업 전략을 구성하는 데에 시간을 많이 할애했습니다. 마지막에 시간에 쫓기기 이전까지는 Git의 Branch 전략과 PR 규칙을 준수하며 이전보다 체계적으로 프로젝트를 진행하다 보니 일관성 유지를 위한 코드 수정, 소통 소요 시간 등의 비용이 눈에 띄게 줄어든 것을 체감했습니다.
 - 이동민
 
 ---
-
-# 참고
-
-![image.png](attachment:5e71844d-1da1-4ea8-932b-b20083264c11:image.png)
-
-![image.png](attachment:00a0c5cf-83f0-4925-9fb5-be69b431bfd9:image.png)
-
-![XGBoost_Optuna_feature_importance.png](attachment:2b83d0ba-d8fe-4f19-9594-4fb3dea4b54f:XGBoost_Optuna_feature_importance.png)
 
 
