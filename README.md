@@ -229,24 +229,61 @@
 
 # 7. 인공지능 학습 결과서
 
-### DT
+# Decision Tree
 
 - 최적화 전후 분류표 레포트
-<img width="600" height="300" alt="image (7)" src="https://github.com/user-attachments/assets/146a0a5e-1890-46db-b9d0-32d4b79323cf" />
-
-<img width="600" height="300" alt="image (8)" src="https://github.com/user-attachments/assets/c4290520-67ea-4309-bdac-46962dd032e7" />
+<table>
+  <tr>
+    <td align="center"><b>Decision Tree (최적화 전)</b></td>
+    <td align="center"><b>Decision Tree (Optuna 최적화 후)</b></td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://github.com/user-attachments/assets/146a0a5e-1890-46db-b9d0-32d4b79323cf" width="400">
+    </td>
+    <td>
+      <img src="https://github.com/user-attachments/assets/c4290520-67ea-4309-bdac-46962dd032e7" width="400">
+    </td>
+  </tr>
+</table>
 
 - 최적화 전후 Confusion Matrix
 
-<img width="600" height="300" alt="image (9)" src="https://github.com/user-attachments/assets/587a0b76-0140-4334-9fb9-91c74cedea1f" />
+<table>
+  <tr>
+    <td align="center"><b>Decision Tree (최적화 전)</b></td>
+    <td align="center"><b>Decision Tree (Optuna 최적화 후)</b></td>
+  </tr>
+  <tr>
+    <td>
+      <img width="600" height="300" alt="image (9)" src="https://github.com/user-attachments/assets/587a0b76-0140-4334-9fb9-91c74cedea1f" />
+    </td>
+    <td>
+      <img width="600" height="300" alt="image (10)" src="https://github.com/user-attachments/assets/b0b2352a-6e30-4e23-9653-fbf07414a87c" />
+    </td>
+  </tr>
+</table>
 
-<img width="600" height="300" alt="image (10)" src="https://github.com/user-attachments/assets/b0b2352a-6e30-4e23-9653-fbf07414a87c" />
+
 
 - 최적화 전후 ROC curve
 
-<img width="913" height="785" alt="image (11)" src="https://github.com/user-attachments/assets/965baa5d-b822-4517-9b52-ebb03cec8f5e" />
+<table>
+  <tr>
+    <td align="center"><b>Decision Tree (최적화 전)</b></td>
+    <td align="center"><b>Decision Tree (Optuna 최적화 후)</b></td>
+  </tr>
+  <tr>
+    <td>
+      <img width="913" height="785" alt="image (11)" src="https://github.com/user-attachments/assets/965baa5d-b822-4517-9b52-ebb03cec8f5e" />
+    </td>
+    <td>
+      <img width="912" height="775" alt="image (12)" src="https://github.com/user-attachments/assets/deaf7b5c-b306-4d53-89c8-1a206d76465a" />
+    </td>
+  </tr>
+</table>
 
-<img width="912" height="775" alt="image (12)" src="https://github.com/user-attachments/assets/deaf7b5c-b306-4d53-89c8-1a206d76465a" />
+
 
 - 결정트리 시각화
 
@@ -259,18 +296,48 @@
 확실한 상황이 아니면 Class 1로 분류하지 않게 되었음을 의미합니다.
 재현율과 정밀도를 함께 높이지 못하는 Precision-Recall Trade-off현상을 확인할 수 있었습니다.
 
-### RF
+# Random Forest
 
 ---
 
 - 최적화 전후 분류 레포트
-<img width="500" height="auto" alt="image (14)" src="https://github.com/user-attachments/assets/ef1ec4a7-449e-4ac0-b41a-fb545128140a" />
-<img width="500" height="auto" alt="image (15)" src="https://github.com/user-attachments/assets/3081e87b-e99c-4ee5-a6d3-1aed41d0ab46" />
+
+<table>
+  <tr>
+    <td align="center"><b>Random Forest (최적화 전)</b></td>
+    <td align="center"><b>Random Forest (Optuna 최적화 후)</b></td>
+  </tr>
+  <tr>
+    <td>
+      <img width="500" height="auto" alt="image (14)" src="https://github.com/user-attachments/assets/ef1ec4a7-449e-4ac0-b41a-fb545128140a" />
+    </td>
+    <td>
+      <img width="500" height="auto" alt="image (15)" src="https://github.com/user-attachments/assets/3081e87b-e99c-4ee5-a6d3-1aed41d0ab46" />
+    </td>
+  </tr>
+</table>
+
+
 
 - 최적화 전후 ROC curve
 
-<img width="300" height="auto" alt="image (16)" src="https://github.com/user-attachments/assets/699f72f3-8d22-47f2-84a9-d70b36f09815" />
-<img width="300" height="auto" alt="image (17)" src="https://github.com/user-attachments/assets/bee9b4f5-b85c-46ad-a0fd-86b6396db4f9" /> 다시 최적화 수행 (recall 을 높이도록)
+<table>
+  <tr>
+    <td align="center"><b>Random Forest (최적화 전)</b></td>
+    <td align="center"><b>Random Forest (Optuna 최적화 후)</b></td>
+  </tr>
+  <tr>
+    <td>
+      <img width="300" height="auto" alt="image (16)" src="https://github.com/user-attachments/assets/699f72f3-8d22-47f2-84a9-d70b36f09815" />
+    </td>
+    <td>
+      <img width="300" height="auto" alt="image (17)" src="https://github.com/user-attachments/assets/bee9b4f5-b85c-46ad-a0fd-86b6396db4f9" /> 
+    </td>
+  </tr>
+</table>
+
+
+다시 최적화 수행 (recall 을 높이도록)
 
 최적화 후 Class 1의 정밀도가 `0.52`에서 `0.62`로 올랐습니다.
 반면 재현율은 `0.10`에서 `0.05`로 떨어졌습니다.
@@ -279,9 +346,22 @@ Precision-Recall Trade-off 현상을 확인할 수 있었습니다.
 따라서 recall을 높이는 쪽으로 다시 한 번 최적화를 시도해봤습니다.
 class1에 가중치를 높이고 목적함수를 f1-score로 설정했습니다.
 
-<img width="705" height="287" alt="image (19)" src="https://github.com/user-attachments/assets/dde15d84-eaa0-44ba-955f-148371859101" />
 
-<img width="716" height="312" alt="image (18)" src="https://github.com/user-attachments/assets/0a86d731-0aca-48c4-9ec5-ce32da4f7883" />
+<table>
+  <tr>
+    <td align="center"><b>Random Forest (최적화 전)</b></td>
+    <td align="center"><b>Random Forest (Optuna 최적화 후)</b></td>
+  </tr>
+  <tr>
+    <td>
+      <img width="705" height="287" alt="image (19)" src="https://github.com/user-attachments/assets/dde15d84-eaa0-44ba-955f-148371859101" />
+    </td>
+    <td>
+      <img width="716" height="312" alt="image (18)" src="https://github.com/user-attachments/assets/0a86d731-0aca-48c4-9ec5-ce32da4f7883" />
+    </td>
+  </tr>
+</table>
+
 
 가장 큰 성과는 Class 1의 Recall을 `0.05`에서 `0.64`까지 끌어올렸다는 점입니다.
 하지만 나머지 지표들이 대부분 하락하여 여전히 모델은 무의미했습니다.
@@ -477,60 +557,13 @@ accuracy도 `0.72` 에서 `0.61` 로 하락해 모델은 여전히 낮은 성능
 
 </td>
     <td><img width="2119" height="1664" alt="image" src="https://github.com/user-attachments/assets/22b5ecff-14eb-45a9-84d8-a6d5fdd383bc" />
-
-
 </td>
   </tr>
 </table>
 
 전체 모델의 ROC 커브를 분석한 결과, 일반 학습과 규제 모델(L1, Elastic Net)은 모두 **0.66 수준의 AUC**를 기록하며 정체된 성능을 보였으나, **Optuna 최적화 모델은 0.6712**로 가장 높은 수치를 달성하며 모델의 전반적인 판별 성능을 유의미하게 개선했습니다. 특히 L1 규제와 Elastic Net 모델은 일반 모델 대비 AUC 수치가 거의 동일하거나 미세하게 낮은 양상을 보이는데, 이는 규제 적용이 단순히 과적합을 억제할 뿐 클래스 간의 이진 분류 성능(Separability) 자체를 끌어올리지는 못했음을 시사합니다. 일반 학습과 규제 모델들은 AUC 0.66 수준에서 정체되어 분류 임계값 변화에 따른 변별력을 충분히 확보하지 못했으나, **Optuna 최적화 모델은 소폭 상승한 0.6712**를 기록하며 상대적으로 가장 진전된 판별 성능을 보여주었습니다. 이는 규제 적용만으로는 한계가 있었던 클래스 분리 능력을 베이지안 최적화 기반의 파라미터 미세 조정을 통해 미미하게나마 개선할 수 있었음을 보여줬습니다. 비록 비즈니스에 즉시 투입하기엔 변별력이 다소 부족한 수치이지만, Optuna를 통한 튜닝 과정이 모델을 무작위 추측 단계에서 벗어나 유의미한 예측 방향성을 갖게 하는 최적의 지점을 도출했음을 보여줍니다.
 
-# 추가) DeepLearning (MLP)
 
-가볍게 배운 DeepLearning MLP 구조로 학습을 진행해봤습니다. 배치 사이즈 , learning rate, dropout_rate, hidden_dim 을 조절해가며 진행하다 roc_auc를 평가지표로 optuna를 진행하였습니다.
-
-### Optuna가 찾은 최적의 하이퍼 파라미터
-
-<img width="794" height="430" alt="image" src="https://github.com/user-attachments/assets/ced42ee3-5e4e-4e5f-be1b-617f416e2840" />
-
-
-딥러닝 기반의 MLP 모델을 구축하며 Optuna를 통해 구조적 최적화를 수행한 결과, 위와 같은 하이퍼 파라미터들이 도출되었습니다. 먼저 학습률(`lr`)이 **0.0015** 수준으로 낮게 설정된 것은 손실 함수(Loss Function)의 국소해(Local Minimum)에 빠지지 않고 안정적으로 수렴하기 위한 선택으로 풀이되며, 배치 사이즈 또한 비교적 크고, 은닉층의 크기(`hidden_dim`)를 **142**로 구성하여 데이터의 비선형적 특징을 충분히 학습할 수 있는 용량을 확보하였습니다. 또한, **30.2% 수준의 드롭아웃(`dropout_rate`)**을 적용함으로써 고차원 데이터에서 발생하기 쉬운 노드 간의 과도한 상호의존성을 차단하고 일반화 성능을 높였습니다. 결과적으로 이러한 하이퍼파라미터 구성은 단순 수치 최적화를 넘어, 신경망이 통신사 이탈 데이터의 불규칙한 패턴을 편향 없이 학습할 수 있는 최적의 아키텍처를 형성하고 있음을 보여줍니다.
-
-### 정확도
-
-<img width="1290" height="1154" alt="image" src="https://github.com/user-attachments/assets/86f5e6b4-7d88-41af-a2ca-c7040a9697d2" />
-
-
-딥러닝 기반의 MLP 모델을 구축하여 최적화를 진행한 결과, **훈련 정확도 0.7303, 테스트 정확도 0.7161**을 기록하며 머신러닝 모델(XGBoost Optuna: 0.719) 대비 소폭 낮은 정확도를 보였습니다. 이는 정형 데이터 분석에 특화된 트리 기반 앙상블 모델에 비해, 신경망 구조가 고차원 피처(2만 개 이상) 간의 상관관계를 해석하는 데 있어 상대적으로 더 많은 학습 데이터나 정교한 아키텍처 설계를 필요로 하기 때문으로 분석됩니다. 하지만 **Optuna**를 통해 도출된 **142차원의 은닉층(Hidden Layer)**과 **0.302의 드롭아웃(Dropout)** 적용은 모델이 단순 암기(Overfitting)를 지양하고 일반화된 패턴을 학습하도록 유도하였으며, 훈련과 테스트 점수 간의 격차를 최소화함으로써 딥러닝 모델 특유의 안정적인 예측 변별력을 확보했다는 점에 의의가 있습니다.
-
-### 특성 중요도 (Permutaion Method 방식으로)
-
-<img width="967" height="701" alt="image" src="https://github.com/user-attachments/assets/8ed9f0bc-f4d8-4693-b5ca-b4d872814860" />
-
-
-- **통화량 변화 민감도**: 트리 모델과 달리 **'PercChangeMinutes(통화량 변화율)'**와 **'MonthlyMinutes(월 사용 분수)'**가 압도적인 1, 2위를 기록하며 이탈 예측의 핵심 지표로 나타났습니다.
-- **신경망 특유의 해석**: 장비 사용 기간에 집중하던 머신러닝 모델과 달리, MLP는 실질적인 **통화 패턴의 변화와 품질(DroppedCalls)** 등 비선형적 요소를 더 민감하게 포착하여 분석했습니다.
-- **서비스 지속성**: **'MonthsInService'**와 **'RetentionCalls'** 역시 상위권에 위치하여, 고객의 서비스 유지 기간과 고객 센터 접촉 이력이 이탈 판단에 중요한 근거가 됨을 확인했습니다.
-- **결론**: MLP는 수치형 데이터의 미세한 변동을 학습하여 머신러닝 모델이 놓칠 수 있는 행동 패턴 기반의 이탈 징후를 보완적으로 제시해주고 있습니다.
-
-<img width="518" height="393" alt="image" src="https://github.com/user-attachments/assets/fb6d73cf-710b-413e-8f78-1ba958276d02" />
-
-
-딥러닝(MLP) 모델의 **Confusion Matrix** 분석 결과입니다.
-
-- **이탈자 탐지 성능**: 실제 이탈자 2,844명 중 **268명을 정확히 예측**해냈으며, 이는 일반 XGBoost 모델(199명)보다 우수하고 Optuna 최적화 모델(306명)에 근접한 수치입니다.
-- **예측 성향**: 유지 고객(Class 0)에 대해서는 **6,861명을 정답**으로 맞히며 매우 높은 정확도를 유지하지만, 이탈 고객에 대해서는 다소 보수적으로 판단하는 경향이 관찰됩니다.
-- **오분류 특성**: 이탈하지 않은 고객을 이탈로 잘못 판단한 오답(False Positive)은 **251건**으로, 전반적인 모델 안정성을 저해하지 않는 수준에서 관리되고 있습니다.
-- **종합 평가**: 머신러닝 모델과 비교했을 때, 딥러닝 특유의 비선형 학습을 통해 **이탈 징후가 뚜렷한 소수 고객층을 효과적으로 선별**해내고 있음을 보여줍니다.
-
-### ROC AUC
-
-<img width="536" height="393" alt="image" src="https://github.com/user-attachments/assets/7a0405da-4cb0-40e3-99dd-73dc04acd800" />
-
-
-DeepLearning MLP : 0.65012
-
-**판별 능력 (AUC 0.65)**: MLP 모델은 **AUC 0.65**를 기록하며 XGBoost(0.67) 대비 다소 낮은 판별력을 보였습니다. 이는 정형 데이터의 복잡한 규칙을 파악하는 데 있어 트리 기반 앙상블 모델이 소폭 유리함을 시사하지만, 신경망 또한 비슷한 성능을 유지하고 있습니다.
 
 # SVM
 
@@ -883,18 +916,75 @@ Best params: {
 - **L1 ROC-AUC: 0.6833 / Accuracy: 0.63 / Recall: 0.63 / F1: 0.49**
 - **Elastic ROC-AUC: 0.6830 / Accuracy: 0.62 / Recall: 0.64 / F1: 0.49**
 
-<img width="739" height="470" alt="스크린샷 2026-02-24 024544" src="https://github.com/user-attachments/assets/ccac99f0-9494-4a55-a953-bb4a398ff6ee" />
-<img width="549" height="225" alt="스크린샷 2026-02-24 024215" src="https://github.com/user-attachments/assets/5c2d1e46-2c09-48b5-a9db-df14132c4dcc" />
+<table>
+  <tr>
+    <td align="center"><b>LightGBM (최적화 전)</b></td>
+    <td align="center"><b>LightGBM Tree (Optuna 최적화 후)</b></td>
+  </tr>
+  <tr>
+    <td>
+      <img width="739" height="470" alt="스크린샷 2026-02-24 024544" src="https://github.com/user-attachments/assets/ccac99f0-9494-4a55-a953-bb4a398ff6ee" />
+    </td>
+    <td>
+      <img width="728" height="493" alt="스크린샷 2026-02-24 024756" src="https://github.com/user-attachments/assets/742e5e14-4398-4177-90c9-b2fafffe91ce" />
+    </td>
+  </tr>
+</table>
 
-<img width="728" height="493" alt="스크린샷 2026-02-24 024756" src="https://github.com/user-attachments/assets/742e5e14-4398-4177-90c9-b2fafffe91ce" />
-<img width="538" height="234" alt="스크린샷 2026-02-24 024823" src="https://github.com/user-attachments/assets/8692fbcb-8f37-4e14-857a-aadbdffa5482" />
+
+<table>
+  <tr>
+    <td align="center"><b>LightGBM (최적화 전)</b></td>
+    <td align="center"><b>LightGBM Tree (Optuna 최적화 후)</b></td>
+  </tr>
+  <tr>
+    <td>
+      <img width="549" height="225" alt="스크린샷 2026-02-24 024215" src="https://github.com/user-attachments/assets/5c2d1e46-2c09-48b5-a9db-df14132c4dcc" />
+    </td>
+    <td>
+      <img width="538" height="234" alt="스크린샷 2026-02-24 024823" src="https://github.com/user-attachments/assets/8692fbcb-8f37-4e14-857a-aadbdffa5482" />
+    </td>
+  </tr>
+</table>
+
+
 
 → 규제 적용만으로는 **AUC가 거의 비슷한 수준**이라 성능 개선 폭이 크지 않았고, 대신 예측 안정성 확인 정도로 사용 후 다음 단계로 넘어감
 
-<img width="1590" height="1422" alt="image" src="https://github.com/user-attachments/assets/277be17d-be1a-4c42-b975-32da56a7cae4" />
-<img width="1590" height="1422" alt="image" src="https://github.com/user-attachments/assets/2a7119e4-e051-4254-9356-783ec2e8e4cc" />
-<img width="2119" height="1665" alt="image" src="https://github.com/user-attachments/assets/c954d94c-5d9e-4a8a-8a7f-ea3378806cbf" />
-<img width="2119" height="1665" alt="image" src="https://github.com/user-attachments/assets/de2e9d74-6f10-4f33-86b9-d2cf14bc0570" />
+<table>
+  <tr>
+    <td align="center"><b>LightGBM (최적화 전)</b></td>
+    <td align="center"><b>LightGBM Tree (Optuna 최적화 후)</b></td>
+  </tr>
+  <tr>
+    <td>
+      <img width="1590" height="1422" alt="image" src="https://github.com/user-attachments/assets/277be17d-be1a-4c42-b975-32da56a7cae4" />
+    </td>
+    <td>
+      <img width="1590" height="1422" alt="image" src="https://github.com/user-attachments/assets/2a7119e4-e051-4254-9356-783ec2e8e4cc" />
+    </td>
+  </tr>
+</table>
+
+
+
+<table>
+  <tr>
+    <td align="center"><b>LightGBM (최적화 전)</b></td>
+    <td align="center"><b>LightGBM Tree (Optuna 최적화 후)</b></td>
+  </tr>
+  <tr>
+    <td>
+      <img width="2119" height="1665" alt="image" src="https://github.com/user-attachments/assets/c954d94c-5d9e-4a8a-8a7f-ea3378806cbf" />
+    </td>
+    <td>
+      <img width="2119" height="1665" alt="image" src="https://github.com/user-attachments/assets/de2e9d74-6f10-4f33-86b9-d2cf14bc0570" />
+    </td>
+  </tr>
+</table>
+
+
+
 
 ### 3) Optuna 최적화(최종 후보)
 
@@ -911,8 +1001,55 @@ Best params: {
     
 <img width="2119" height="1665" alt="image" src="https://github.com/user-attachments/assets/6b0f4531-9700-42ba-8fa8-4545fe40c3b2" />
 
+# 추가) DeepLearning (MLP)
 
-### Top Feature Insights
+가볍게 배운 DeepLearning MLP 구조로 학습을 진행해봤습니다. 배치 사이즈 , learning rate, dropout_rate, hidden_dim 을 조절해가며 진행하다 roc_auc를 평가지표로 optuna를 진행하였습니다.
+
+### Optuna가 찾은 최적의 하이퍼 파라미터
+
+<img width="794" height="430" alt="image" src="https://github.com/user-attachments/assets/ced42ee3-5e4e-4e5f-be1b-617f416e2840" />
+
+
+딥러닝 기반의 MLP 모델을 구축하며 Optuna를 통해 구조적 최적화를 수행한 결과, 위와 같은 하이퍼 파라미터들이 도출되었습니다. 먼저 학습률(`lr`)이 **0.0015** 수준으로 낮게 설정된 것은 손실 함수(Loss Function)의 국소해(Local Minimum)에 빠지지 않고 안정적으로 수렴하기 위한 선택으로 풀이되며, 배치 사이즈 또한 비교적 크고, 은닉층의 크기(`hidden_dim`)를 **142**로 구성하여 데이터의 비선형적 특징을 충분히 학습할 수 있는 용량을 확보하였습니다. 또한, **30.2% 수준의 드롭아웃(`dropout_rate`)**을 적용함으로써 고차원 데이터에서 발생하기 쉬운 노드 간의 과도한 상호의존성을 차단하고 일반화 성능을 높였습니다. 결과적으로 이러한 하이퍼파라미터 구성은 단순 수치 최적화를 넘어, 신경망이 통신사 이탈 데이터의 불규칙한 패턴을 편향 없이 학습할 수 있는 최적의 아키텍처를 형성하고 있음을 보여줍니다.
+
+### 정확도
+
+<img width="1290" height="1154" alt="image" src="https://github.com/user-attachments/assets/86f5e6b4-7d88-41af-a2ca-c7040a9697d2" />
+
+
+딥러닝 기반의 MLP 모델을 구축하여 최적화를 진행한 결과, **훈련 정확도 0.7303, 테스트 정확도 0.7161**을 기록하며 머신러닝 모델(XGBoost Optuna: 0.719) 대비 소폭 낮은 정확도를 보였습니다. 이는 정형 데이터 분석에 특화된 트리 기반 앙상블 모델에 비해, 신경망 구조가 고차원 피처(2만 개 이상) 간의 상관관계를 해석하는 데 있어 상대적으로 더 많은 학습 데이터나 정교한 아키텍처 설계를 필요로 하기 때문으로 분석됩니다. 하지만 **Optuna**를 통해 도출된 **142차원의 은닉층(Hidden Layer)**과 **0.302의 드롭아웃(Dropout)** 적용은 모델이 단순 암기(Overfitting)를 지양하고 일반화된 패턴을 학습하도록 유도하였으며, 훈련과 테스트 점수 간의 격차를 최소화함으로써 딥러닝 모델 특유의 안정적인 예측 변별력을 확보했다는 점에 의의가 있습니다.
+
+### 특성 중요도 (Permutaion Method 방식으로)
+
+<img width="967" height="701" alt="image" src="https://github.com/user-attachments/assets/8ed9f0bc-f4d8-4693-b5ca-b4d872814860" />
+
+
+- **통화량 변화 민감도**: 트리 모델과 달리 **'PercChangeMinutes(통화량 변화율)'**와 **'MonthlyMinutes(월 사용 분수)'**가 압도적인 1, 2위를 기록하며 이탈 예측의 핵심 지표로 나타났습니다.
+- **신경망 특유의 해석**: 장비 사용 기간에 집중하던 머신러닝 모델과 달리, MLP는 실질적인 **통화 패턴의 변화와 품질(DroppedCalls)** 등 비선형적 요소를 더 민감하게 포착하여 분석했습니다.
+- **서비스 지속성**: **'MonthsInService'**와 **'RetentionCalls'** 역시 상위권에 위치하여, 고객의 서비스 유지 기간과 고객 센터 접촉 이력이 이탈 판단에 중요한 근거가 됨을 확인했습니다.
+- **결론**: MLP는 수치형 데이터의 미세한 변동을 학습하여 머신러닝 모델이 놓칠 수 있는 행동 패턴 기반의 이탈 징후를 보완적으로 제시해주고 있습니다.
+
+<img width="518" height="393" alt="image" src="https://github.com/user-attachments/assets/fb6d73cf-710b-413e-8f78-1ba958276d02" />
+
+
+딥러닝(MLP) 모델의 **Confusion Matrix** 분석 결과입니다.
+
+- **이탈자 탐지 성능**: 실제 이탈자 2,844명 중 **268명을 정확히 예측**해냈으며, 이는 일반 XGBoost 모델(199명)보다 우수하고 Optuna 최적화 모델(306명)에 근접한 수치입니다.
+- **예측 성향**: 유지 고객(Class 0)에 대해서는 **6,861명을 정답**으로 맞히며 매우 높은 정확도를 유지하지만, 이탈 고객에 대해서는 다소 보수적으로 판단하는 경향이 관찰됩니다.
+- **오분류 특성**: 이탈하지 않은 고객을 이탈로 잘못 판단한 오답(False Positive)은 **251건**으로, 전반적인 모델 안정성을 저해하지 않는 수준에서 관리되고 있습니다.
+- **종합 평가**: 머신러닝 모델과 비교했을 때, 딥러닝 특유의 비선형 학습을 통해 **이탈 징후가 뚜렷한 소수 고객층을 효과적으로 선별**해내고 있음을 보여줍니다.
+
+### ROC AUC
+
+<img width="536" height="393" alt="image" src="https://github.com/user-attachments/assets/7a0405da-4cb0-40e3-99dd-73dc04acd800" />
+
+
+DeepLearning MLP : 0.65012
+
+**판별 능력 (AUC 0.65)**: MLP 모델은 **AUC 0.65**를 기록하며 XGBoost(0.67) 대비 다소 낮은 판별력을 보였습니다. 이는 정형 데이터의 복잡한 규칙을 파악하는 데 있어 트리 기반 앙상블 모델이 소폭 유리함을 시사하지만, 신경망 또한 비슷한 성능을 유지하고 있습니다.
+
+
+# Top Feature Insights
 
 <img width="1820" height="482" alt="image" src="https://github.com/user-attachments/assets/67d9989d-f727-49fa-80c3-b5573e351ed4" />
 
@@ -966,6 +1103,7 @@ precision-recall trade off 현상을 직접 경험할 수 있어서 재밌었다
 - 이동민
 
 ---
+
 
 
 
